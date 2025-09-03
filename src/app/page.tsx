@@ -2,17 +2,24 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   ArrowUpRight,
+  Award,
+  BriefcaseBusiness,
   ChevronRight,
   Flag,
   LibraryBig,
+  MessagesSquare,
   MoveRight,
+  Presentation,
   Search,
+  SquareUserRound,
   Sun,
   Telescope,
+  WalletCards,
   Zap,
 } from "lucide-react";
 import { MarqueeDemo } from "@/components/AppComponent/MarqueeCompany";
 import React from "react";
+import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
 
 const navbarItems = [
   {
@@ -49,7 +56,7 @@ const AboutCard: React.FC<{
 }> = ({ icon, title, description }) => {
   return (
     <div className="h-80 border overflow-hidden p-5 flex relative items-start flex-col justify-between border-zinc-900/50 rounded-2xl bg-[#0c0c0c4d] ">
-      <span className="absolute bottom-2 -right-12">
+      <span className="absolute bottom-2 -right-24">
         <svg
           className="size-48  text-zinc-900/30 stroke-zinc-900/50"
           viewBox="0 0 121 107"
@@ -104,6 +111,32 @@ const AboutCard: React.FC<{
           {description}
         </p>
       </footer>
+    </div>
+  );
+};
+
+const ActivityCard: React.FC<{
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  color?: string;
+}> = ({
+  icon,
+  title,
+  description,
+  color = "border-zinc-900/50 bg-[#0c0c0c4d]",
+}) => {
+  return (
+    <div
+      className={`border overflow-hidden p-5 flex relative items-start flex-col justify-between rounded-2xl ${color}`}
+    >
+      <header>
+        <h3 className="flex text-lg items-center  font-medium text-white">
+          {icon}
+          {title}
+        </h3>
+        <p className="pt-2 text-[15px] text-white">{description}</p>
+      </header>
     </div>
   );
 };
@@ -183,7 +216,7 @@ export default function Home() {
             </button>
           </div>
 
-          <h1 className="text-white text-6xl font-extrabold">
+          <h1 className="text-white text-7xl font-extrabold">
             Conectando Talentos a Grandes Oportunidades
           </h1>
           <div className="max-w-2xl mx-auto">
@@ -215,12 +248,14 @@ export default function Home() {
           <MarqueeDemo />
         </div>
 
-        <section className="mt-20">
+        <section className="mt-28">
           <header className="text-center">
-            <h2 className="text-white leading-none text-5xl font-bold ">
+            <h2 className="text-white leading-none text-5xl font-semibold ">
               Unindo mais que laços
             </h2>
-            <p className="text-zinc-400 mt-4 text-lg leading-none">Sobre nós</p>
+            <p className="text-zinc-400 mt-2 text-lg leading-none uppercase">
+              Sobre nós
+            </p>
           </header>
           <div className="max-w-7xl pb-10 mt-16 grid grid-cols-4 gap-2 w-full mx-auto">
             <AboutCard
@@ -243,6 +278,101 @@ export default function Home() {
               title="O que fazemos"
               description="No Angopen, oferecemos uma plataforma dinâmica onde talentos e empresas podem se conectar, explorar oportunidades de negócios em TI e colaborar para impulsionar o profissionalismo e a inovação no setor."
             />
+          </div>
+        </section>
+
+        <section className="mt-40">
+          <header className="text-center">
+            <h2 className="text-white leading-none text-5xl font-semibold ">
+              Preenchendo lacunas...
+            </h2>
+            <p className="text-zinc-400 mt-2 uppercase  text-lg leading-none">
+              Projectos
+            </p>
+          </header>
+          <div className="max-w-7xl pb-10  mt-32 items-center grid grid-cols-7 gap-6 w-full mx-auto">
+            <div className="grid grid-cols-1 col-span-2 gap-2 relative z-20">
+              <ActivityCard
+                icon={
+                  <BriefcaseBusiness className="size-5  text-white inline-block mr-2" />
+                }
+                title="Oportunidades de emprego"
+                description="Oferecemos a oportunidade de encontrar empregos em TI de forma rápida e eficiente em grandes empresas que são parceiras do Angopen."
+              />
+              <ActivityCard
+                icon={
+                  <Presentation className="size-5  text-white inline-block mr-2" />
+                }
+                title="Acesso a qualquer evento"
+                description="Estaremos sempre a par dos eventos mais recentes no setor de TI, como conferências, workshops e meetups, hackathons, etc, garantindo que você nunca perca uma oportunidade de networking ou aprendizado."
+              />
+              <ActivityCard
+                icon={
+                  <WalletCards className="size-5  text-white inline-block mr-2" />
+                }
+                title="Freelancing"
+                color="border-[#D2551F]/50 bg-[#D2551F]"
+                description="Encontre e solucione trabalhos freelance em TI, e ganhe uma
+                    renda extra resolvendo projectos pessoais ou empresariais."
+              />
+            </div>
+            <div className="flex col-span-3 items-center justify-center">
+              <NeonGradientCard className=" bg-transparent flex  items-center justify-center text-center">
+                <span className="flex items-center justify-center">
+                  <svg
+                    className="size-48"
+                    viewBox="0 0 121 107"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M58.2538 3.12761L28.161 57.025C27.4167 58.3581 28.3804 60 29.9073 60H90.0927C91.6196 60 92.5833 58.3581 91.839 57.025L61.7463 3.12761C60.9832 1.76093 59.0168 1.76093 58.2538 3.12761Z"
+                      fill="#D2551F"
+                    />
+                    <path
+                      d="M60.4574 66.1414L42.6338 103.641C42.003 104.969 42.9708 106.5 44.4402 106.5H117.033C118.573 106.5 119.535 104.832 118.764 103.499L97.0776 65.9987C96.7201 65.3807 96.0602 65 95.3462 65H62.2638C61.4918 65 60.7888 65.4443 60.4574 66.1414Z"
+                      fill="#fff"
+                      stroke="#ffff"
+                    />
+                    <path
+                      d="M22.9255 66.0145L1.69058 103.515C0.935601 104.848 1.89874 106.5 3.43093 106.5H34.2572C35.0183 106.5 35.7134 106.068 36.0504 105.386L54.5745 67.8858C55.2311 66.5566 54.2639 65 52.7813 65H24.6659C23.9454 65 23.2805 65.3875 22.9255 66.0145Z"
+                      fill="#D2551F"
+                    />
+                  </svg>
+                </span>
+              </NeonGradientCard>
+            </div>
+            <div className="grid grid-cols-1 col-span-2 gap-2 relative z-20">
+              <ActivityCard
+                icon={
+                  <SquareUserRound className="size-5  text-white inline-block mr-2" />
+                }
+                title=" Profissionais Concentrados"
+                color="border-[#D2551F]/50 bg-[#D2551F]"
+                description="A nossa plataforma reúne uma comunidade diversificada de
+                    profissionais de TI, facilitando a busca por talentos com
+                    habilidades específicas para atender às necessidades do seu
+                    negócio."
+              />
+              <ActivityCard
+                icon={
+                  <Award className="size-5  text-white inline-block mr-2" />
+                }
+                title="Satrt ups & Ideias"
+                description="Aqui, podes encontrar apoio e recursos para transformar suas
+                    ideias em realidade, conectando-se com investidores,
+                    mentores e outros empreendedores no setor de TI."
+              />
+              <ActivityCard
+                icon={
+                  <MessagesSquare className="size-5  text-white inline-block mr-2" />
+                }
+                title="Comunidade Ativa"
+                description="Junte-se a uma comunidade vibrante de profissionais de TI,
+                    onde você pode compartilhar conhecimentos, discutir
+                    tendências do setor e colaborar em projetos inovadores."
+              />
+            </div>
           </div>
         </section>
       </main>
