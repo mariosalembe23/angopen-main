@@ -7,6 +7,7 @@ import {
   ChevronRight,
   Flag,
   LibraryBig,
+  Menu,
   MessagesSquare,
   MoveRight,
   Presentation,
@@ -49,13 +50,36 @@ const navbarItems = [
   },
 ];
 
+const footerItems = [
+  {
+    label: "Actividades",
+    href: "/projects",
+    external: true,
+  },
+  {
+    label: "Comunidade",
+    href: "/community",
+    external: true,
+  },
+  {
+    label: "Chat",
+    href: "/chat",
+    external: true,
+  },
+  {
+    label: "Cookies",
+    href: "/cookies",
+    external: false,
+  },
+];
+
 const AboutCard: React.FC<{
   icon: React.ReactNode;
   title: string;
   description: string;
 }> = ({ icon, title, description }) => {
   return (
-    <div className="h-80 border overflow-hidden p-5 flex relative items-start flex-col justify-between border-zinc-900/50 rounded-2xl bg-[#0c0c0c4d] ">
+    <div className="pot:h-80 h-56 border overflow-hidden p-5 flex relative items-start flex-col justify-between border-zinc-900/50 rounded-2xl bg-[#0c0c0c4d] ">
       <span className="absolute bottom-2 -right-24">
         <svg
           className="size-48  text-zinc-900/30 stroke-zinc-900/50"
@@ -107,7 +131,7 @@ const AboutCard: React.FC<{
           {icon}
           {title}
         </span>
-        <p className="text-zinc-400 font-[450] mt-1 text-[14px]">
+        <p className="text-zinc-400 font-[450] mt-1 text-[15px]">
           {description}
         </p>
       </footer>
@@ -144,7 +168,7 @@ const ActivityCard: React.FC<{
 export default function Home() {
   return (
     <div>
-      <header className="sticky flex items-center justify-around top-0 z-50 w-full border-b border-zinc-900 py-3  backdrop-blur-md bg-[#0a0a0a]/80">
+      <header className="sticky flex items-center justify-between pot:px-0 px-5 pot:justify-around top-0 z-50 w-full border-b border-zinc-900 py-3  backdrop-blur-md bg-[#0a0a0a]/80">
         <div className="flex items-center gap-4">
           <div>
             <Link
@@ -174,7 +198,7 @@ export default function Home() {
               Angopen
             </Link>
           </div>
-          <div className="flex items-center px-1 border-l border-zinc-900 gap-3">
+          <div className="pot:flex hidden items-center px-1 border-l border-zinc-900 gap-3">
             {navbarItems.map((item) => (
               <Link key={item.href} href={item.href}>
                 <Button
@@ -193,7 +217,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="pot:flex hidden items-center gap-2">
           <button className="bg-transparent transition-all hover:border-zinc-800 text-white hover:opacity-80  px-4 py-2.5 text-[15px] rounded-md leading-none border-zinc-900">
             Iniciar Sessão
           </button>
@@ -205,10 +229,15 @@ export default function Home() {
             <Sun className="size-5 " />
           </button>
         </div>
+        <div className="flex pot:hidden items-center justify-center">
+          <button className="text-white opacity-80 hover:opacity-100 transition-all ms-3">
+            <Menu className="size-6 " />
+          </button>
+        </div>
       </header>
 
       <main className="pt-28">
-        <header className="max-w-4xl font-sans text-center w-full mx-auto">
+        <header className="max-w-4xl px-5 font-sans text-center w-full mx-auto">
           <div className="mb-6 flex justify-center">
             <button className="bg-[#a83f1257] border border-[#D2551F] text-white px-2 py-1.5 rounded-full flex items-start leading-none text-[15px]">
               Visitar actividades recentes
@@ -216,7 +245,7 @@ export default function Home() {
             </button>
           </div>
 
-          <h1 className="text-white text-7xl font-extrabold">
+          <h1 className="text-white pot:text-6xl ret:text-5xl text-3xl lal:text-7xl font-extrabold">
             Conectando Talentos a Grandes Oportunidades
           </h1>
           <div className="max-w-2xl mx-auto">
@@ -229,12 +258,12 @@ export default function Home() {
               <span className="text-white">talentos e empresas</span> se
               encontram para criar o futuro da tecnologia juntos.
             </p>
-            <div className="flex w-[70%] items-center mx-auto  justify-center gap-2  mt-6">
+            <div className="flex w-full ret:flex-row flex-col ret:w-[70%] items-center mx-auto  justify-center gap-2  mt-6">
               <button className="bg-transparent w-full justify-between flex transition-all hover:bg-zinc-900/40 text-white border px-4 py-3 text-[15px] font-[450] rounded-md leading-none border-zinc-900">
                 Pesquisa rápida
                 <Search className="inline-block text-zinc-600 ml-2 size-4" />
               </button>
-              <button className="bg-white w-full justify-between flex transition-all hover:bg-zinc-900/40 text-black border px-4 py-3 text-[15px] font-[450] rounded-md leading-none border-zinc-900">
+              <button className="bg-white h w-full justify-between flex transition-all hover:bg-white/40 text-black border px-4 py-3 text-[15px] font-[450] rounded-md leading-none border-zinc-900">
                 Começar agora
                 <MoveRight className="inline-block text-zinc-600 ml-2 size-4" />
               </button>
@@ -248,16 +277,16 @@ export default function Home() {
           <MarqueeDemo />
         </div>
 
-        <section className="mt-28">
+        <section className="mt-28 px-5">
           <header className="text-center">
-            <h2 className="text-white leading-none text-5xl font-semibold ">
+            <h2 className="text-white leading-none pot:text-4xl text-3xl lal:text-5xl font-medium pot:font-semibold ">
               Unindo mais que laços
             </h2>
             <p className="text-zinc-400 mt-2 text-lg leading-none uppercase">
               Sobre nós
             </p>
           </header>
-          <div className="max-w-7xl pb-10 mt-16 grid grid-cols-4 gap-2 w-full mx-auto">
+          <div className="max-w-7xl pb-10 mt-16 grid ret:grid-cols-2 grid-cols-1 pot:grid-cols-4 gap-2 w-full mx-auto">
             <AboutCard
               icon={<LibraryBig className="size-4 text-white" />}
               title="Valores"
@@ -281,16 +310,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-40">
+        <section className="mt-40 px-5">
           <header className="text-center">
-            <h2 className="text-white leading-none text-5xl font-semibold ">
+            <h2 className="text-white leading-none pot:text-4xl text-3xl lal:text-5xl font-medium pot:font-semibold ">
               Preenchendo lacunas...
             </h2>
             <p className="text-zinc-400 mt-2 uppercase  text-lg leading-none">
               Projectos
             </p>
           </header>
-          <div className="max-w-7xl pb-10  mt-32 items-center grid grid-cols-7 gap-6 w-full mx-auto">
+          <div className="max-w-7xl pb-10  mt-32 items-center grid grid-cols-1 pot:grid-cols-7 pot:gap-6 gap-y-6 w-full mx-auto">
             <div className="grid grid-cols-1 col-span-2 gap-2 relative z-20">
               <ActivityCard
                 icon={
@@ -320,7 +349,7 @@ export default function Home() {
               <NeonGradientCard className=" bg-transparent flex  items-center justify-center text-center">
                 <span className="flex items-center justify-center">
                   <svg
-                    className="size-48"
+                    className="pot:size-48 size-36"
                     viewBox="0 0 121 107"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -376,16 +405,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-64">
+        <section className="pot:mt-64 mt-44">
           <header className="text-center">
-            <h2 className="text-white leading-none text-5xl font-medium ">
+            <h2 className="text-white leading-none pot:text-4xl text-3xl lal:text-5xl font-medium ">
               Conectando-nos sempre
             </h2>
             <p className="text-zinc-400 mt-2 uppercase  text-lg leading-none">
               Comunidade
             </p>
           </header>
-          <div className="max-w-2xl w-full mt-12 mx-auto grid grid-cols-2 gap-2">
+          <div className="max-w-2xl w-full mt-12 mx-auto grid px-5 ret:grid-cols-2 gap-2">
             <div className="h-96 border overflow-hidden p-5 flex relative items-start flex-col justify-between border-zinc-900/50 rounded-2xl bg-[#0c0c0c4d]">
               <header>
                 <svg
@@ -455,6 +484,81 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <footer className="flex gap-y-5 pot:flex-row flex-col px-5 items-center justify-around w-full border-t mt-32 border-zinc-900 py-3  backdrop-blur-md bg-[#0a0a0a]/80">
+        <div className="flex pot:flex-row flex-col items-center gap-4">
+          <div className="pot:pt-0 pt-5">
+            <Link
+              href={"/"}
+              className="flex text-white clash text-xl items-center gap-2"
+            >
+              <svg
+                className="pot:size-6 size-8"
+                viewBox="0 0 121 107"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M58.2538 3.12761L28.161 57.025C27.4167 58.3581 28.3804 60 29.9073 60H90.0927C91.6196 60 92.5833 58.3581 91.839 57.025L61.7463 3.12761C60.9832 1.76093 59.0168 1.76093 58.2538 3.12761Z"
+                  fill="#D2551F"
+                />
+                <path
+                  d="M60.4574 66.1414L42.6338 103.641C42.003 104.969 42.9708 106.5 44.4402 106.5H117.033C118.573 106.5 119.535 104.832 118.764 103.499L97.0776 65.9987C96.7201 65.3807 96.0602 65 95.3462 65H62.2638C61.4918 65 60.7888 65.4443 60.4574 66.1414Z"
+                  fill="#fff"
+                  stroke="#1A1A1A"
+                />
+                <path
+                  d="M22.9255 66.0145L1.69058 103.515C0.935601 104.848 1.89874 106.5 3.43093 106.5H34.2572C35.0183 106.5 35.7134 106.068 36.0504 105.386L54.5745 67.8858C55.2311 66.5566 54.2639 65 52.7813 65H24.6659C23.9454 65 23.2805 65.3875 22.9255 66.0145Z"
+                  fill="#D2551F"
+                />
+              </svg>
+            </Link>
+          </div>
+          <div className="flex flex-wrap justify-center items-center px-1 pot:border-l border-zinc-900 gap-3">
+            {footerItems.map((item) => (
+              <Link key={item.href} href={item.href}>
+                <Button
+                  variant="link"
+                  className="transition-all flex items-start gap-1 text-white text-base font-[400]"
+                >
+                  {item.label}
+                  {item.external && (
+                    <ArrowUpRight className="inline-block opacity-40 size-3" />
+                  )}
+                </Button>
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="flex pot:flex-row flex-col items-center gap-6">
+          <div className="flex items-center justify-center gap-6">
+            <Link href={"/"} className="text-white text-lg">
+              <i className="bi bi-instagram"></i>
+            </Link>
+            <Link href={"/"} className="text-white text-lg">
+              <i className="bi bi-linkedin"></i>
+            </Link>
+            <Link href={"/"} className="text-white text-lg">
+              <i className="bi bi-facebook"></i>
+            </Link>
+          </div>
+          <div className="px-1 flex items-center justify-center pot:border-l border-zinc-900">
+            <Button
+              variant="link"
+              className="transition-all text-[15px] flex items-start gap-1 text-white text-base font-[400]"
+            >
+              Política de Privacidade
+              <ArrowUpRight className="inline-block opacity-40 size-3" />
+            </Button>
+            <Button
+              variant="link"
+              className="transition-all flex text-[15px] items-start gap-1 text-white text-base font-[400]"
+            >
+              Termos de Serviço
+              <ArrowUpRight className="inline-block opacity-40 size-3" />
+            </Button>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
