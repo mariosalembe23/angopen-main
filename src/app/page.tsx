@@ -237,7 +237,7 @@ export default function Home() {
       </header>
 
       <main className="pt-28">
-        <header className="max-w-4xl px-5 font-sans text-center w-full mx-auto">
+        <header className="max-w-5xl pot:px-0 px-5 font-sans text-center w-full mx-auto">
           <div className="mb-6 flex justify-center">
             <button className="bg-[#a83f1257] border border-[#D2551F] text-white px-2 py-1.5 rounded-full flex items-start leading-none text-[15px]">
               Visitar actividades recentes
